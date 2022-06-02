@@ -1,5 +1,6 @@
 // A module to filter out events with inactive FEMBs
 // owen.goodwin@postgrad.manchester.ac.uk
+// lino.oscar.gerlach@cern.ch
 
 #include <iostream>
 #include <utility>
