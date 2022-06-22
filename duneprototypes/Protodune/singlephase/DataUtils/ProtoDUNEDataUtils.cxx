@@ -86,7 +86,7 @@ int protoana::ProtoDUNEDataUtils::GetNActiveFembsForAPA(art::Event const & evt, 
 
   else{ // if raw digits have been dropped use RDTimeStamps instead
 
-    auto RawdigitTSListHandle = evt.getHandle< std::vector<raw::RDTimeStamp> >(fRawDigitTimeStampTag);
+    auto RawdigitTSListHandle = evt.getHandle< std::vector<raw::RDTimeStamp> >(fTimingTag);
     art::fill_ptr_vector(digitTSlist, RawdigitTSListHandle);  
 	
     for(auto const & dptr : digitTSlist) {
@@ -123,7 +123,7 @@ bool protoana::ProtoDUNEDataUtils::CheckTimeStampConsistencyForAPAs(art::Event c
 {
   art::ServiceHandle<dune::PdspChannelMapService> channelMap;
   std::vector<art::Ptr<raw::RDTimeStamp> > TSlist;
-  auto RawTSListHandle = evt.getHandle< std::vector<raw::RDTimeStamp> >(fRawDigitTimeStampTag);
+  auto RawTSListHandle = evt.getHandle< std::vector<raw::RDTimeStamp> >(fTimingTag);
   art::fill_ptr_vector(TSlist, RawTSListHandle);
 
   timestamp = 0;
