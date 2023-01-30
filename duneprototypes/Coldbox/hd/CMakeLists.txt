@@ -7,7 +7,7 @@ cet_build_plugin(HDColdboxDataInterface   art::tool
                         lardataobj_RawData
                         dunepdlegacy_Overlays
                         artdaq_core::artdaq-core_Data
-                        artdaq-core_Utilities
+                        artdaq_core::artdaq-core_Utilities
                         dunepdlegacy_Services_ChannelMap_PdspChannelMapService_service
                         dunecore::HDF5Utils
                         LIBHDF5
@@ -32,8 +32,8 @@ cet_build_plugin(HDColdboxDataInterfaceWIB3   art::tool
                         lardataobj::RawData
                         dunepdlegacy_Overlays
                         artdaq_core::artdaq-core_Data
-                        artdaq-core_Utilities
-                        duneprototypes_Coldbox_hd_ChannelMap_PD2HDChannelMapService_service
+                        artdaq_core::artdaq-core_Utilities
+                        duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
 			art::Framework_Core
                         art::Framework_Principal
                         art::Framework_Services_Registry
@@ -47,7 +47,22 @@ cet_build_plugin(HDColdboxDataInterfaceWIB3   art::tool
                         LIBHDF5
              )
 
-
+cet_build_plugin(HDColdboxDAQWriter art::module
+                        lardataobj_RawData
+                        art::Framework_Core
+                        art::Framework_Principal
+                        art::Framework_Services_Registry
+                        art_root_io::tfile_support
+                        ROOT::Core
+                        art_root_io::TFileService_service
+                        ART_PERSISTENCY_PROVENANCE
+                        messagefacility::MF_MessageLogger
+                        CETLIB
+                        ROOT_BASIC_LIB_LIST
+			LIBHDF5
+                        duneprototypes_Protodune_hd_ChannelMap_PD2HDChannelMapService_service
+                        BASENAME_ONLY
+)
 
 
 add_subdirectory(fcl)

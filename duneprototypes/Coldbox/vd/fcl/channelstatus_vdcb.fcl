@@ -1,7 +1,7 @@
 # channelstatus_vdcb.fcl
 #
 # David Adams
-# Novewmber 2021
+# November 2021
 #
 # For use with runs after 8225
 #
@@ -62,6 +62,17 @@ data.ChannelStatusService_vdcb1: {
   service_provider: "SimpleChannelStatusService"
   BadChannels:   @local::data.vdcb1_bad_channels
   NoisyChannels: @local::data.vdcb1_noisy_channels
+}
+
+tools.chanstat_vdcrp1a: {
+  tool_type: ChannelStatusConfigTool
+  DefaultIndex: 0
+  IndexVectors: [
+    @local::data.vdcb1_bad_channels,
+    @local::data.vdcb1_noisy_channels,
+    @local::data.vdcb1_modrms_channels,
+    @local::data.vdcb1_modsc_channels
+  ]
 }
 
 ################## Run period 2. Run 12065 (cold) and later. ###################
@@ -152,3 +163,13 @@ data.ChannelStatusService_vdcb2: {
   NoisyChannels: @local::data.vdcb2_noisy_channels
 }
 
+tools.chanstat_vdcrp1b: {
+  tool_type: ChannelStatusConfigTool
+  DefaultIndex: 0
+  IndexVectors: [
+    @local::data.vdcb2_bad_channels,
+    @local::data.vdcb2_noisy_channels,
+    [],
+    @local::data.vdcb2_losc_channels
+  ]
+}

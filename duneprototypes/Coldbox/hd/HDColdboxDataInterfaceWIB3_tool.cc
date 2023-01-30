@@ -15,7 +15,7 @@
 #include "dunecore/DuneObj/DUNEHDF5FileInfo.h"
 #include "dunecore/HDF5Utils/HDF5Utils.h"
 #include "detdataformats/wib2/WIB2Frame.hpp"
-#include "duneprototypes/Coldbox/hd/ChannelMap/PD2HDChannelMapService.h"
+#include "duneprototypes/Protodune/hd/ChannelMap/PD2HDChannelMapService.h"
 
 
 
@@ -24,7 +24,7 @@ HDColdboxDataInterface::HDColdboxDataInterface(fhicl::ParameterSet const& p)
     fFileInfoLabel(p.get<std::string>("FileInfoLabel", "daq")),
     fMaxChan(p.get<int>("MaxChan",1000000)),
     fDefaultCrate(p.get<unsigned int>("DefaultCrate", 2)),
-    fDebugLevel(p.get<int>("DebugLevel",1))
+    fDebugLevel(p.get<int>("DebugLevel",0))
 {
 }
 
